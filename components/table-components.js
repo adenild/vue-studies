@@ -1,29 +1,3 @@
-
-Vue.component('search-input', {
-  props: ['label','users'],
-  template: `
-    <label>
-    {{ label }}
-    <input type="text" list="lista">
-
-    <datalist id="lista">
-        <option v-for="user in users" :value="user.name">{{ user.name }}</option>
-    </datalist>
-    </label>
-
-  `
-});
-
-Vue.component('users-form',{
-    template:
-    `
-    <form>
-      <input class="" v-model="name">
-      <button type="submit" class="btn enviar">Enviar</button>
-    </form>
-    `
-})
-
 Vue.component('users-table-header',{
     template:
         `
@@ -57,10 +31,8 @@ Vue.component('users-table',{
                 <users-table-header></users-table-header>
             </thead>
             <tbody>
-                <users-table-body v-for="user in users" :id="user.id" :name="user.name"></users-table-body>
+                <users-table-body v-for="(user,index) in users" :id="user.id" :name="user.name"></users-table-body>
             </tbody>
         </table>
         `
 })
-
-
