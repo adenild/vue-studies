@@ -1,18 +1,31 @@
 
 Vue.component('search-input', {
-  props: ['label','users'],
+  props: ['label','users','errors','name'],
   template: `
-    <label>
-    {{ label }}
-    <input type="text" list="lista">
+    <form
+      @submit="checkForm"
+      action=""
+      method="post"
+      novalidate="true">
+       <p v-if="errors.length">
+        <b>Por favor, corrija o(s) seguinte(s) erro(s):</b>
+        <ul>
+         <li v-for="error in errors">{{ error }}</li>
+        </ul>
+       </p>
 
-    <datalist id="lista">
-        <option v-for="user in users" :value="user.name">{{ user.name }}</option>
-    </datalist>
-    </label>
+       <label>
+       {{ label }}
+         <input type="text" name="name" list="lista">
+         <input type="submit" value="Enviar">
+           <datalist id="lista">
+             <option v-for="user in users" :value="user.name">{{ user.name }}</option>
+           </datalist>
+       </label>
+    </form>
 
   `
-});
+})
 
 Vue.component('users-form',{
     template:
