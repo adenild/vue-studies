@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '#app',
-  data:function(){
-    return{
+  data: function(){
+    return {
         users: [
             {id:1, name:'Adenildo'},
             {id:2, name:'Cesar'},
@@ -12,4 +12,5 @@ var app = new Vue({
         ]
     }
   },
+
 })
