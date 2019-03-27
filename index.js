@@ -6,7 +6,6 @@ var app = new Vue({
         id:'',
         name:'',
       },
-
       users: [],
     }
   }
