@@ -27,6 +27,3 @@ Vue.component('users-form',{
     </div>
     `
 })
-
-
-
