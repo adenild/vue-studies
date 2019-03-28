@@ -10,4 +10,4 @@ var app = new Vue({
       users: [],
     }
   }
-})
+});
