@@ -1,18 +1,3 @@
-Vue.component('users-table',{
-    props:['users'],
-    template:
-        `
-        <table class="table-bordered">
-            <thead>
-                <users-table-header></users-table-header>
-            </thead>
-            <tbody>
-                <users-table-body v-for="(user,index) in users" :id="index" :name="user.name"></users-table-body>
-            </tbody>
-        </table>
-        `
-})
-
 Vue.component('users-table-header',{
     template:
         `
@@ -35,4 +20,19 @@ Vue.component('users-table-body', {
       <td class="like-cell"><a role="button" class="fas fa-thumbs-down"></a></td>
   	</tr>
   	`
+})
+
+Vue.component('users-table',{
+    props:['users'],
+    template:
+        `
+        <table class="table-bordered">
+            <thead>
+                <users-table-header></users-table-header>
+            </thead>
+            <tbody>
+                <users-table-body v-for="(user,index) in users" :id="index" :name="user.name"></users-table-body>
+            </tbody>
+        </table>
+        `
 })
