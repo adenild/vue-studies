@@ -31,7 +31,7 @@ Vue.component('users-table',{
                 <users-table-header></users-table-header>
             </thead>
             <tbody>
-                <users-table-body v-for="(user,index) in users" :id="user.id" :name="user.name"></users-table-body>
+                <users-table-body v-for="(user,index) in users" :id="index" :name="user.name"></users-table-body>
             </tbody>
         </table>
         `
