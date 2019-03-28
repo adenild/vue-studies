@@ -9,19 +9,6 @@ Vue.component('users-table-header',{
         `
 })
 
-Vue.component('users-table-body', {
-  props:['id', 'name'],
-  template:
-    `
-    <tr>
-      <td>{{ id }}</td>
-      <td>{{ name }}</td>
-      <td class="like-cell"><a role="button" class="fas fa-thumbs-up"></a></td>
-      <td class="like-cell"><a role="button" class="fas fa-thumbs-down"></a></td>
-  	</tr>
-  	`
-})
-
 Vue.component('users-table',{
     props:['users'],
     template:
@@ -36,3 +23,17 @@ Vue.component('users-table',{
         </table>
         `
 })
+
+Vue.component('users-table-body', {
+  props:['id', 'name'],
+  template:
+    `
+    <tr>
+      <td>{{ id }}</td>
+      <td>{{ name }}</td>
+      <td class="like-cell"><a role="button" class="fas fa-thumbs-up"></a></td>
+      <td class="like-cell"><a role="button" class="fas fa-thumbs-down"></a></td>
+  	</tr>
+  	`
+})
+
