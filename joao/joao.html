@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js"></script>
+  <!-- Boootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../index.css">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app" style="margin-left: 25px;">
+
+
+    O que chega:
+    <ul>
+      <li  v-for="item in clients" style="cursor:pointer;">{{ item.type }} - {{ item.name }} - {{ item.email }}</li>
+    </ul>
+
+    O que alteramos:
+    {{ clients_copy }}
+
+    <ul>
+      <li  v-for="item in clients_copy" @click="forms.client.object=item" style="cursor:pointer;">{{ item.type }} - {{ item.name }} - {{ item.email }}</li>
+    </ul>
+
+    Nome:<br>
+    <user :object="forms.client.object" :error="forms.client.error"></user><br>
+    Email:<br>
+    <email :object="forms.client.object" :error="forms.client.error"></email><br>
+    Password:<br>
+    <password :object="forms.client.object" :error="forms.client.error"></password><br>
+    Tipo:<br>
+    <type :object="forms.client.object" :choices="choices" :error="forms.client.error"></type>
+  </div>
+</body>
+<script src="joao.js"></script>
+</html>
