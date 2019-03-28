@@ -14,18 +14,15 @@
 </head>
 <body>
   <div id="app" style="margin-left: 25px;">
-
-
     O que chega:
     <ul>
-      <li  v-for="item in clients" style="cursor:pointer;">{{ item.type }} - {{ item.name }} - {{ item.email }}</li>
+      <li  v-for="(item, index) in clients" @click="copy_object(item, index)"  style="cursor:pointer;">{{ item.type }} - {{ item.name }} - {{ item.email }}</li>
     </ul>
 
     O que alteramos:
-    {{ clients_copy }}
-
     <ul>
-      <li  v-for="item in clients_copy" @click="forms.client.object=item" style="cursor:pointer;">{{ item.type }} - {{ item.name }} - {{ item.email }}</li>
+      <li style="cursor:pointer;">{{ client_copy }}</li>
+      <li style="cursor:pointer;">{{ forms.client.object }}</li>
     </ul>
 
     Nome:<br>
@@ -34,8 +31,10 @@
     <email :object="forms.client.object" :error="forms.client.error"></email><br>
     Password:<br>
     <password :object="forms.client.object" :error="forms.client.error"></password><br>
-    Tipo:<br>
+
     <type :object="forms.client.object" :choices="choices" :error="forms.client.error"></type>
+
+    <buttons-panel :object="forms.client.object" :error="forms.client.error" :copy_object="copy_object" :save_form="save_form" :delete_item="delete_item"></buttons-panel>
   </div>
 </body>
 <script src="joao.js"></script>

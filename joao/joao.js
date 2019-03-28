@@ -34,7 +34,7 @@ Vue.component('type', {
   template:
     `
     <div>
-      <label for="title">{{ title }}</label>
+      <label for="title">Tipo: </label>
       <select v-model="object.type">
        <option v-for="item in choices"  :value="item.value">{{ item.title }}</option>
       </select>
@@ -104,6 +104,18 @@ Vue.component('date', {
     'pattern="[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$" min="2012-01-01" max="2014-02-18" />'
 });
 
+Vue.component('buttons-panel', {
+  props: ['object', 'error', 'copy_object', 'save_form', 'delete_item'],
+    template:
+    `
+    <div>
+      <button v-on:click="copy_object(object)" type="button" class="btn btn-lg btn-primary">Editar</button>
+      <button v-on:click="save_form(object)" type="button" class="btn btn-lg btn-primary">Incluir</button>
+      <button v-on:click="delete_item" type="button" class="btn btn-lg btn-primary">Excluir</button>
+    </div>
+    `
+});
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -114,27 +126,9 @@ var app = new Vue({
 
     forms: {
       client:{
-        object:{
-          name:"",
-          password: "",
-          phone: "",
-          email: "",
-          type: [
-            {},
-            {},
-          ],
-          cpf: "",
-          cnpj: "",
-          zip_code: "",
-          street: "",
-          number: "",
-          neighborhood: "",
-          city: "",
-          state: "",
-          country: "",
-          date: "",
-        },
-        error:{},
+        index:null,
+        object:{},
+        error:null,
       },
     },
 
@@ -145,11 +139,26 @@ var app = new Vue({
       {name:"JOÃO", email:"joapsouzar@gmail.com", password:"123", type:"pf"},
     ],
 
-    clients_copy :[
-      {name:"DIEGO", email:"diegopasti@gmail.com", password:"123", type:"pf"},
-      {name:"BRUNO", email:"brunopasti@gmail.com", password:"123", type:"pj"},
-      {name:"JOÃO", email:"joapsouzar@gmail.com", password:"123", type:"pf"},
-    ],
-
+    client_copy : null,
+   },
+  methods: {
+    copy_object: function(object, index){
+      //this.forms.client.object = object;
+      //alert("object" + object);
+      this.client_copy = JSON.parse(JSON.stringify(object));
+      //alert("this.client_copy" + this.client_copy);
+      this.forms.client.object = this.client_copy;
+      this.forms.client.index = index;
+      //alert("this.forms.client."+this.forms.client.object);
+      //alert("DEU CERTO!: " + this.forms.client.object );
+    },
+    save_form: function(object){
+      this.clients[this.forms.client.index] = JSON.parse(JSON.stringify(this.forms.client.object));
+      alert("SALVO NO BANCO DE DADOS")
+    },
+    delete_item: function(object){
+      this.clients.splice(this.forms.client.index, 1);
+      alert("SALVO NO BANCO DE DADOS");
+    }
   },
 })
