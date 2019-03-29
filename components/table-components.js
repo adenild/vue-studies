@@ -1,38 +1,38 @@
-Vue.component('users-table-header',{
-    template:
-        `
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th colspan="2">Avaliação</th>
-        </tr>
-        `
-})
-
-Vue.component('users-table-body', {
-  props:['id', 'name'],
+Vue.component('app-table-header',{
+  props:["columns"],
   template:
     `
-    <tr>
-      <td>{{ id }}</td>
-      <td>{{ name }}</td>
-      <td class="like-cell"><a role="button" class="fas fa-thumbs-up"></a></td>
-      <td class="like-cell"><a role="button" class="fas fa-thumbs-down"></a></td>
-  	</tr>
-  	`
-})
+    <thead>
+      <tr >
+        <th v-for='item in columns' >{{ item.title }}</th>       
+      </tr>
+    </thead>
+    `
+});
 
-Vue.component('users-table',{
-    props:['users'],
-    template:
-        `
-        <table class="table-bordered">
-            <thead>
-                <users-table-header></users-table-header>
-            </thead>
-            <tbody>
-                <users-table-body v-for="(user,index) in users" :id="index" :name="user.name"></users-table-body>
-            </tbody>
-        </table>
-        `
-})
+Vue.component('app-table-body', {
+  props:['clients'],
+  template:
+    `
+    <tbody>  
+      <tr v-for='(item, index) in clients'>
+        <td>{{ index + 1 }}</td>   
+        <td>{{ item.name }}</td> 
+        <td>{{ item.email }}</td>     
+        <td>{{ item.password }}</td>      
+        <td>{{ item.type }}</td>
+      </tr>
+    </tbody>
+  	`
+});
+
+Vue.component('raw-table',{
+  props:['columns','clients'],
+  template:
+    `
+    <table class="table-bordered" style="margin-left: 10px;">
+      <app-table-header :columns="columns"></app-table-header>
+      <app-table-body :clients="clients"></app-table-body>  
+    </table>
+    `
+});

@@ -17,8 +17,20 @@
 
 <body>
   <div id="app" class="clean-row">
-    <users-form :form="form"></users-form>
-    <users-table :users="users"></users-table>
+    <div class="row clean-row">
+      <raw-table :columns="columns" :clients="clients"></raw-table>
+      <raw-table :columns="columns" :clients="users"></raw-table>
+    </div>
+    <users-form
+            class="clean-row"
+            :users="forms.users"
+            :object="forms.clients.object"
+            :errors="forms.clients.errors"
+            :choices="choices"
+            :copy_object="copy_object"
+            :save_form="save_form"
+            :delete_item="delete_item"
+            :add_user="add_user"></users-form>
   </div>
 </body>
 

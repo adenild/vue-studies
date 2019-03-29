@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js"></script>
+  <!-- Boootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../index.css">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app" style="margin-left: 25px;">
+    O que chega:
+    <ul>
+      <li  v-for="(item, index) in clients" @click="copy_object(item, index)"  style="cursor:pointer;">{{ item.type }} - {{ item.name }} - {{ item.email }}</li>
+    </ul>
+    O que alteramos:
+    <ul>
+      <li style="cursor:pointer;">{{ client_copy }}</li>
+      <li style="cursor:pointer;">{{ forms.clients.object }}</li>
+    </ul>
+
+    <form>
+
+      <user :object="forms.clients.object" :errors="forms.clients.errors"></user><br>
+
+      <email :object="forms.clients.object" :errors="forms.clients.errors"></email><br>
+
+      <password :object="forms.clients.object" :errors="forms.clients.errors"></password><br>
+
+      <type :choices="choices" :object="forms.clients.object" :errors="forms.clients.errors"></type><br>
+
+      <phone :object="forms.clients.object" :errors="forms.clients.errors"></phone><br>
+
+      <date :object="forms.clients.object" :errors="forms.clients.errors"></date><br>
+
+      <cpf :object="forms.clients.object" :errors="forms.clients.errors"></cpf><br>
+
+      <cnpj :object="forms.clients.object" :errors="forms.clients.errors"></cnpj><br>
+
+      <zip-code :object="forms.clients.object" :errors="forms.clients.errors"></zip-code><br>
+
+      <street :object="forms.clients.object" :errors="forms.clients.errors"></street><br>
+
+      <number :object="forms.clients.object" :errors="forms.clients.errors"></number><br>
+
+      <neighbourhood :object="forms.clients.object" :errors="forms.clients.errors"></neighbourhood><br>
+
+      <city :object="forms.clients.object" :errors="forms.clients.errors"></city><br>
+
+      <state :object="forms.clients.object" :errors="forms.clients.errors"></state><br>
+
+      <country :object="forms.clients.object" :errors="forms.clients.errors"></country><br>
+      <buttons-panel :object="forms.clients.object" :errors="forms.clients.errors" :copy_object="copy_object" :save_form="save_form" :delete_item="delete_item"></buttons-panel>
+    </form>
+  </div>
+</body>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
+<script src="components/open.js"></script>
+<script src="components/closed.js"></script>
+<script src="joao.js"></script>
+</html>
