@@ -1,12 +1,58 @@
+Vue.component('app-table-header',{
+  mixins: [],
+  props:["columns"],
+    // [
+    //   {'id':'0','title':'produto','class':'clickable selectable', 'onclick':''},
+    //   {'id':'1','title':'produto','class':'clickable selectable', 'onclick':''},
+    // ]
+
+  template:
+    `
+    <thead>
+      <tr>
+        <th v-for='item in columns' :class="item.class" @click="onclick">{{ item }}</th>
+      </tr>
+    <thead>
+    `
+});
+
+Vue.component('app-product-table-header',{
+  props:[],
+
+  data: function(){
+      return {
+        columns: [
+          {"id":0, "title":"Nome do Produto", 'onclick':this.somar},
+          {"id":1, "title":"Categoria", 'onclick':this.subtrair},
+        ],
+      }
+    }
+  },
+
+  methods:{
+    somar: function(){
+    },
+
+    subtrair: function(){
+    },
+  },
+  template:
+    `
+    <app-table-header :columns='columns'></app-table-header>
+    `
+});
+
+
 Vue.component('users-table-header',{
-    template:
-        `
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th colspan="2">Avaliação</th>
-        </tr>
-        `
+  props:["columns"]
+  template:
+    `
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th colspan="2">Avaliação</th>
+    </tr>
+    `
 });
 
 Vue.component('users-table-body', {
@@ -26,7 +72,7 @@ Vue.component('users-table',{
     props:['users'],
     template:
     `
-    <table class="table-bordered">
+    <table class="table table-bordered table-striped" style='width:100%;'>
         <thead>
             <users-table-header></users-table-header>
         </thead>

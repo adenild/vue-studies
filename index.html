@@ -15,8 +15,8 @@
 </head>
 <body>
   <div id="app" class="clean-row">
-    <users-form class="clean-row" :object="forms.clients.object" :errors="forms.clients.errors" :choices="choices" :copy_object="copy_object" :save_form="save_form" :delete_item="delete_item"></users-form>
     <users-table :users="users"></users-table>
+    <users-form class="clean-row" :object="forms.clients.object" :errors="forms.clients.errors" :choices="choices" :copy_object="copy_object" :save_form="save_form" :delete_item="delete_item"></users-form>
   </div>
 </body>
 <script src="components/table-components.js"></script>

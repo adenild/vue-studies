@@ -13,7 +13,6 @@ Vue.component('users-button',{
     <div class="row">
       <button type="submit" class="btn btn-info" @click="add_user()">Enviar</button>
     </div>
-
     `
 })
 
@@ -69,15 +68,8 @@ Vue.component('users-form',{
         </div>
         
       </div>
-        
-            
-        
-                   
-              
-               
-        <date :object="object" :error="errors"></date><br>       
-                
-        <zip-code :object="object" :error="errors"></zip-code><br>       
+        <date :object="object" :error="errors"></date><br>
+        <zip-code :object="object" :error="errors"></zip-code><br>
         <street :object="object" :error="errors"></street><br>      
         <number :object="object" :error="errors"></number><br>         
         <neighbourhood :object="object" :error="errors"></neighbourhood><br>      
