@@ -15,8 +15,8 @@ Vue.component('app-table-body', {
   template:
     `
     <tbody>  
-      <tr v-for='item in clients'>
-        <td>{{ item.id }}</td>   
+      <tr v-for='(item, index) in clients'>
+        <td>{{ index + 1 }}</td>   
         <td>{{ item.name }}</td> 
         <td>{{ item.email }}</td>     
         <td>{{ item.password }}</td>      

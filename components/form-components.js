@@ -9,11 +9,11 @@ Vue.component('users-button',{
 })
 
 Vue.component('buttons-panel', {
-    props: ['object', 'error', 'copy_object', 'save_form', 'delete_item'],
+    props: ['object', 'error', 'copy_object', 'save_form', 'delete_item','add_user'],
     template:
         `
     <div>
-      <button @click="copy_object(object)" type="button" class="btn btn-sm btn-primary">Editar</button>
+      <button @click="add_user" type="button" class="btn btn-sm btn-primary">Editar</button>
       <button @click="save_form(object)" type="button" class="btn btn-sm btn-primary">Incluir</button>
       <button @click="delete_item" type="button" class="btn btn-sm btn-primary">Excluir</button>
     </div>
@@ -21,68 +21,68 @@ Vue.component('buttons-panel', {
 });
 
 Vue.component('users-form',{
-    props: ['object','errors','choices','copy_object','save_form','delete_item','add_user'],
+    props: ['object','errors','choices','copy_object','save_form','delete_item','add_user', 'users'],
     template:
     `
     <form>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="row">  
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <name :object="object" :error="errors"></name>
+            <name :object="users" :error="errors"></name>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <type :object="object" :error="errors" :choices="choices"></type>
+            <type :object="users" :error="errors" :choices="choices"></type>
           </div>     
         </div>   
         <div class="row">
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <user :object="object" :error="errors"></user>
+            <user :object="users" :error="errors"></user>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <password :object="object" :error="errors"></password>
+            <password :object="users" :error="errors"></password>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <cpf :object="object" :error="errors"></cpf>       
-            <cnpj :object="object" :error="errors"></cnpj>
+            <cpf :object="users" :error="errors"></cpf>       
+            <cnpj :object="users" :error="errors"></cnpj>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-            <email :object="object" :error="errors"></email>
+            <email :object="users" :error="errors"></email>
           </div>
           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-            <phone :object="object" :error="errors"></phone>
+            <phone :object="users" :error="errors"></phone>
           </div>
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <date :object="object" :error="errors"></date><br>
+            <date :object="users" :error="errors"></date>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <zip-code :object="object" :error="errors"></zip-code>
+            <zip-code :object="users" :error="errors"></zip-code>
           </div>
           <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-            <street :object="object" :error="errors"></street>
+            <street :object="users" :error="errors"></street>
           </div>
           <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-            <number :object="object" :error="errors"></number>
+            <number :object="users" :error="errors"></number>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <neighbourhood :object="object" :error="errors"></neighbourhood>
+            <neighbourhood :object="users" :error="errors"></neighbourhood>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <city :object="object" :error="errors"></city>
+            <city :object="users" :error="errors"></city>
           </div>
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <state :object="object" :error="errors"></state>
+            <state :object="users" :error="errors"></state>
           </div>
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <country :object="object" :error="errors"></country>
+            <country :object="users" :error="errors"></country>
           </div>
         </div>
-        <buttons-panel :object="object" :error="errors" :copy_object="copy_object" :save_form="save_form" :delete_item="delete_item" style="margin-top: 10px;margin-left: 5px;"></buttons-panel>
+        <buttons-panel :object="users" :error="errors" :copy_object="copy_object" :save_form="save_form" :delete_item="delete_item" :add_user="add_user" style="margin-top: 10px;margin-left: 5px;"></buttons-panel>
       </div>             
     </form>
     `

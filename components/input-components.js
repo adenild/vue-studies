@@ -17,7 +17,7 @@ Vue.component('user', {
     <div>
       <sub>Usuário:</sub><br>
       <label v-if="error" class="label_error">{{ error }}</label>
-      <input class="form-control" type="text" required="required" name="user" v-model="object.user" maxlength="10">
+      <input class="form-control" type="text" required="required" name="user" v-model="object.username" maxlength="10">
     </div>
     `
 });
@@ -45,12 +45,12 @@ Vue.component('email', {
 });
 
 Vue.component('phone', {
-  props: ['phone'],
+  props: ['phone','object'],
   template:
       `
     <div>
       <sub>Celular:</sub><br>
-      <input class="form-control" type="tel" required="required" maxlength="15" name="phone" pattern="\\[0-9]{2}\\ [0-9]{4,6}[0-9]{3,4}$" >
+      <input class="form-control" type="tel" required="required" maxlength="15" name="phone" pattern="\\[0-9]{2}\\ [0-9]{4,6}[0-9]{3,4}$" v-model="object.phone">
 	 	</div> 
 		`
 });
@@ -74,7 +74,7 @@ Vue.component('cpf', {
       `
     <div v-if="object.type == 'pf'">
 			<sub>CPF:</sub><br>
-			<input class="form-control" type="text" required="required" name="cpf" maxlength="20">
+			<input class="form-control" type="text" required="required" name="cpf" maxlength="20" v-model="object.cpf">
     </div>
     `
 });
@@ -85,95 +85,95 @@ Vue.component('cnpj', {
       `
     <div v-if="object.type == 'pj'">
 			<sub>CNPJ:</sub><br>
-			<input class="form-control" type="text" required="required" name="cnpj" maxlength="20">
+			<input class="form-control" type="text" required="required" name="cnpj" maxlength="20" v-model="object.cnpj">
     </div>
     `
 });
 
 Vue.component('zip-code', {
-  props: ['zip-code'],
+  props: ['object','zip-code'],
   template:
       `
 		<div>
 		  <sub>CEP:</sub><br>
-			<input class="form-control" type="tel" required="required" maxlength="10" name="zip-code"  pattern="[0-9]{2}.[0-9]{3}-[0-9]{3}$" >
+			<input class="form-control" type="tel" required="required" maxlength="10" name="zip-code"  pattern="[0-9]{2}.[0-9]{3}-[0-9]{3}$" v-model="object.zip_code">
 		</div>
 		`
 });
 
 Vue.component('street', {
-  props: ['street'],
+  props: ['object','street'],
   template:
       `
 		<div>
 		  <sub>Rua:</sub><br>
-			<input class="form-control" type="text" required="required" name="neighborhood" maxlength="100">
+			<input class="form-control" type="text" required="required" name="neighborhood" maxlength="100" v-model="object.street">
 		</div>
 			`
 });
 
 Vue.component('number', {
-  props: ['number'],
+  props: ['object','number'],
   template:
       `
 		<div>
 		  <sub>Número</sub><br>
-			<input class="form-control" type="text" required="required" name="number" maxlength="10">
+			<input class="form-control" type="text" required="required" name="number" maxlength="10" v-model="object.street_code">
 		</div>
 		`
 });
 
 Vue.component('neighbourhood', {
-  props: ['neighborhood'],
+  props: ['object','neighborhood'],
   template:
       `
 		<div>
 		  <sub>Bairro:</sub><br>
-			<input class="form-control" type="text" required="required" name="neighbourhood" maxlength="50">
+			<input class="form-control" type="text" required="required" name="neighbourhood" maxlength="50" v-model="object.neighbourhood">
 		</div>
 			`
 });
 
 Vue.component('city', {
-  props: ['city'],
+  props: ['object','city'],
   template:
       `
 		<div>
 		  <sub>Cidade</sub><br>
-			<input class="form-control" type="text" required="required" name="city" maxlength="50">
+			<input class="form-control" type="text" required="required" name="city" maxlength="50" v-model="object.city">
 		</div>
 `
 });
 
 Vue.component('state', {
-  props: ['state'],
+  props: ['object','state'],
   template:
       `
 		<div>
 		  <sub>UF:</sub><br>
-			<input class="form-control" type="text" required="required" name="state" maxlength="50">
+			<input class="form-control" type="text" required="required" name="state" maxlength="50" v-model="object.state">
 		</div>
     `
 });
 
 Vue.component('country', {
-  props: ['country'],
+  props: ['object','country'],
   template:
       `
 		<div>
 		  <sub>País</sub><br>
-			<input class="form-control" type="text" required="required" name="country" maxlength="50">
+			<input class="form-control" type="text" required="required" name="country" maxlength="50" v-model="object.country">
 		</div>
 		`
 });
 
 Vue.component('date', {
-  props: ['date'],
+  props: ['object','date'],
   template:
       `
 		<div>
 		  <sub>Data:</sub><br>
-    	<input class="form-control" type="date" required="required" maxlength="10" name="date" pattern="[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$" min="2000-01-01" max="2019-03-29">
+    	<input class="form-control" type="date" required="required" maxlength="10" name="date" pattern="[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$" min="2000-01-01" max="2019-03-29"  v-model="object.date">
 		</div>    
 		`
 });
