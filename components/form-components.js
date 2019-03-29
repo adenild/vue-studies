@@ -1,13 +1,3 @@
-Vue.component('users-button',{
-    props:['users','form', 'add_user'],
-    template:
-    `
-    <div class="row">
-      <button type="submit" class="btn btn-info" @click="add_user()">Enviar</button>
-    </div>
-    `
-})
-
 Vue.component('buttons-panel', {
     props: ['object', 'error', 'copy_object', 'save_form', 'delete_item','add_user'],
     template:
@@ -87,6 +77,3 @@ Vue.component('users-form',{
     </form>
     `
 });
-
-
-

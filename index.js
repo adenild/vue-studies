@@ -21,7 +21,7 @@ var app = new Vue({
         index:null,
         object:{},
         errors:null,
-      },
+      },     
       users:{
         id:             '',
         name:           '',

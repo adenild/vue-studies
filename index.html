@@ -13,12 +13,10 @@
   <meta charset="UTF-8">
   <title>OTMA - Vue</title>
 </head>
+
+
 <body>
   <div id="app" class="clean-row">
-
-    VEJA COMO TA O FORMS EDITADO LA PELO COMPONENT: {{ forms.users }}
-
-
     <div class="row clean-row">
       <raw-table :columns="columns" :clients="clients"></raw-table>
       <raw-table :columns="columns" :clients="users"></raw-table>
@@ -35,6 +33,7 @@
             :add_user="add_user"></users-form>
   </div>
 </body>
+
 <script src="components/table-components.js"></script>
 <script src="components/input-components.js"></script>
 <script src="components/form-components.js"></script>
