@@ -62,7 +62,7 @@ Vue.component('type', {
       <div>
         <sub>Tipo:</sub><br>
         <select class="form-control" v-model="object.type" required="required">
-         	<option v-for="item in choices" :value="item.value">{{ item.title }}</option>
+         	<option v-for="item in choices" :value="item.value" :selected="item.selected">{{ item.title }}</option>
         </select>
       </div>
       `

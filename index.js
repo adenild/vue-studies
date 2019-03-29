@@ -1,9 +1,17 @@
 var app = new Vue({
   el: '#app',
   data: {
+    columns: [
+      {'title':'ID',},
+      {'title':'Nome',},
+      {'title':'e-Mail',},
+      {'title':'Senha',},
+      {'title':'Tipo',},
+    ],
+
     choices: [
-      {"value":"pf", "title":"Pessoa Física"},
-      {"value":"pj", "title":"Pessoa Jurídica"},
+      {"value":"pf", "title":"Pessoa Física", "selected":"selected",},
+      {"value":"pj", "title":"Pessoa Jurídica", "selected":null,},
     ],
 
     forms: {
@@ -15,23 +23,24 @@ var app = new Vue({
     },
 
     clients :[
-      {name:"DIEGO", email:"diegopasti@gmail.com", password:"123", type:"pf"},
-      {name:"BRUNO", email:"brunopasti@gmail.com", password:"123", type:"pj"},
-      {name:"JOÃO", email:"joapsouzar@gmail.com", password:"123", type:"pf"},
+      {id:1, name:"DIEGO", email:"diegopasti@gmail.com", password:"123", type:"pf"},
+      {id:2, name:"BRUNO", email:"brunopasti@gmail.com", password:"123", type:"pj"},
+      {id:3, name:"JOÃO", email:"joapsouzar@gmail.com", password:"123", type:"pf"},
     ],
 
     client_copy : null,
   },
   methods: {
+    add_user: function(){
+      var item = {id: 1, name: form.name};
+      users.push(item)
+      form.id = '';
+      form.name = '';
+    },
     copy_object: function(object, index){
-      //this.forms.client.object = object;
-      //alert("object" + object);
       this.client_copy = JSON.parse(JSON.stringify(object));
-      //alert("this.client_copy" + this.client_copy);
       this.forms.client.object = this.client_copy;
       this.forms.client.index = index;
-      //alert("this.forms.client."+this.forms.client.object);
-      //alert("DEU CERTO!: " + this.forms.client.object );
     },
     save_form: function(object){
       this.clients[this.forms.client.index] = JSON.parse(JSON.stringify(this.forms.client.object));
