@@ -3,9 +3,9 @@ Vue.component('buttons-panel', {
     template:
         `
     <div>
-      <button v-on:click="copy_object(object)" type="button" class="btn btn-lg btn-primary">Editar</button>
-      <button v-on:click="save_form(object)" type="submit" class="btn btn-lg btn-primary">Incluir</button>
-      <button v-on:click="delete_item" type="button" class="btn btn-lg btn-primary">Excluir</button>
+      <button @click="copy_object(object)" type="button" class="btn btn-lg btn-primary">Editar</button>
+      <button @click="save_form(object)" type="button" class="btn btn-lg btn-primary">Incluir</button>
+      <button @click="delete_item" type="button" class="btn btn-lg btn-primary">Excluir</button>
     </div>
     `
 });
